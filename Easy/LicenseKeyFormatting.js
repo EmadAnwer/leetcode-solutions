@@ -1,12 +1,7 @@
 //https://leetcode.com/problems/license-key-formatting/
 
 var licenseKeyFormatting = function (s, k) {
-  const upperCaseWithoutDash = [];
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] !== "-") {
-      upperCaseWithoutDash.push(s[i].toUpperCase());
-    }
-  }
+  const upperCaseWithoutDash = s.replace(/-/g, "").toUpperCase().split("");
 
   const upperCaseWithDash = [];
   let nextDash = k;
