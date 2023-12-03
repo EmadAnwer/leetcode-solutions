@@ -26,7 +26,8 @@ var isAnagram = function (s, t) {
 
 // 	return sortedS === sortedT;
 //   };
-// wrong "bb"  ""
+
+// wrong "bb"  "ac"
 // var isAnagram = function (s, t) {
 //   if (s.length !== t.length) return false;
 
