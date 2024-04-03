@@ -1,37 +1,12 @@
+//https://leetcode.com/problems/merge-k-sorted-lists/ 
+
+
 function ListNode(val, next) {
   this.val = val === undefined ? 0 : val;
   this.next = next === undefined ? null : next;
 }
 
-// var mergeKLists = function (lists) {
-//   const dummy = new ListNode(0);
-//   let current = dummy;
-//   let tmp = [];
-//   for (let i = 0; i < lists.length; i++) {
-// 	if (lists[i]) {
-// 	  tmp.push(lists[i]);
-// 	}
-//   }
-//   while (tmp.length) {
-// 	let min = Infinity;
-// 	let minIndex = -1;
-// 	for (let i = 0; i < tmp.length; i++) {
-// 	  if (tmp[i].val < min) {
-// 		min = tmp[i].val;
-// 		minIndex = i;
-// 	  }
-// 	}
-// 	current.next = tmp[minIndex];
-// 	current = current.next;
-// 	tmp[minIndex] = tmp[minIndex].next;
-// 	if (!tmp[minIndex]) {
-// 	  tmp.splice(minIndex, 1);
-// 	}
-//   }
-//   return dummy.next;
-
-// };
-
+// too slow
 var mergeKLists = function (lists) {
   const dummy = new ListNode(0);
   let current = dummy;

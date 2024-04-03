@@ -11,7 +11,7 @@ var removeDuplicates = function (s) {
     }
   }
 
-  return stack.join('');
+  return stack.join("");
 };
 
 testCases = [
