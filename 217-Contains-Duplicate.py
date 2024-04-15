@@ -4,7 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         \\\
-        s = set(nums)
+        s = set()
 
-        return not len(s) == len(nums)
+        for n in nums:
+            if n in s:
+                return True
+            s.add(n)
+        return False
         
