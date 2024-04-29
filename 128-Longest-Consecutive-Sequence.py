@@ -5,15 +5,15 @@ class Solution(object):
         :rtype: int
         \\\
         largest = 0
-        mydit = {}
+        mydict = {}
         
         for n in nums:
-            if n not in mydit:
-                left = mydit.get(n-1, 0)
-                right = mydit.get(n+1, 0)
+            if n not in mydict:
+                left = mydict.get(n-1, 0)
+                right = mydict.get(n+1, 0)
                 length = left + right + 1
-                mydit[n] = length
-                mydit[n-left] = length
-                mydit[n+right] = length
+                mydict[n] = length
+                mydict[n-left] = length
+                mydict[n+right] = length
                 largest = max(largest, length)
         return largest
