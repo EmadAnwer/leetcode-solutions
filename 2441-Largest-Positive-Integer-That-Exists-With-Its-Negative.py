@@ -4,14 +4,15 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        nums.sort()
-        s = set(nums)
+        if not nums:
+            return -1
         
-        for n in nums:
-            if n > 0:
-                break
-            if abs(n) in s:
-                return abs(n)
+        seen = set()
+        max_k = float('-inf')
 
-        
-        return -1
+        for n in nums:
+            if -n in seen:
+                max_k = max(max_k, abs(n))
+            seen.add(n)
+
+        return max_k if max_k != float('-inf') else -1
