@@ -4,8 +4,6 @@ class Solution(object):
         :type s: str
         :rtype: bool
         \\\
-        if len(s) % 2 != 0:
-            return False
 
         stack = []
         parentheses = {
