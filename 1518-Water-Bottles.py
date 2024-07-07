@@ -1,15 +1,10 @@
 class Solution:
     def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
-            
-            drinked_bottles = 0 # 14
-            empty = 0 # 1
-            while  numBottles != 0: #0
-                drinked_bottles += numBottles # 14
-                empty += numBottles # 1
-                remain = empty % numExchange #  1
-                numBottles = empty // numExchange # 0
-                empty = remain # 1
-
-
-            return drinked_bottles
-
+        total_drinked_bottles = numBottles
+        
+        while numBottles >= numExchange:
+            new_bottles = numBottles // numExchange
+            total_drinked_bottles += new_bottles
+            numBottles = new_bottles + (numBottles % numExchange)
+        
+        return total_drinked_bottles
