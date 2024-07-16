@@ -1,13 +1,9 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        \\\
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        \\\
-        num_dict = {}
-        for i, num in enumerate(nums):
-            complement = target - num
-            if complement in num_dict:
-                return [num_dict[complement], i]
-            num_dict[num] = i
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        idx_hash = {}
+
+        for i, n in enumerate(nums):
+            if target - n in idx_hash:
+                return [i, idx_hash[target - n]]
+            idx_hash[n]= i
+            
