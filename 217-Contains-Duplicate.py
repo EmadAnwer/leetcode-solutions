@@ -1,14 +1,12 @@
-class Solution(object):
-    def containsDuplicate(self, nums):
-        \\\
-        :type nums: List[int]
-        :rtype: bool
-        \\\
-        s = set()
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
 
+        nums_set = set()
         for n in nums:
-            if n in s:
+            if n in nums_set:
                 return True
-            s.add(n)
+            
+            nums_set.add(n)
+
+
         return False
-        
