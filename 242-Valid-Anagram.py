@@ -9,8 +9,8 @@ class Solution:
         chars = [0] * 26
 
         for c1, c2 in zip(s, t):
-            chars[97-ord(c1)] += 1
-            chars[97-ord(c2)] -= 1
+            chars[ord(c1)- 97] += 1
+            chars[ord(c2)- 97] -= 1
 
         for n in chars:
             if n != 0:
