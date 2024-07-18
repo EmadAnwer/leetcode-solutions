@@ -1,17 +1,34 @@
-class Solution(object):
-    def isValidSudoku(self, board):
-        \\\
-        :type board: List[List[str]]
-        :rtype: bool
-        \\\
-        def isValid(nums):
-            nums = [i for i in nums if i != '.']
-            return len(set(nums)) == len(nums)
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+
+
+        # Check rows and columns
         for i in range(9):
-            if not isValid(board[i]):
-                return False
-            if not isValid([board[j][i] for j in range(9)]):
-                return False
-            if not isValid([board[i//3*3+j//3][i % 3*3+j % 3] for j in range(9)]):
-                return False
+            row = [False] * 9
+            col = [False] * 9
+
+            for j in range(9):
+                # Check row
+                if board[i][j] != ".":
+                    if row[ord(board[i][j]) - ord("1")]:
+                        return False
+                    row[ord(board[i][j]) - ord("1")] = True
+                
+                # Check column
+                if board[j][i] != ".":
+                    if col[ord(board[j][i]) - ord("1")]:
+                        return False
+                    col[ord(board[j][i]) - ord("1")] = True
+
+        # Check 3x3 sub-boxes
+        for i in range(0, 9, 3):
+            for j in range(0, 9, 3):
+                box = [False] * 9
+                for k in range(3):
+                    for l in range(3):
+                        if board[i + k][j + l] != ".":
+                            if box[ord(board[i + k][j + l]) - ord("1")]:
+                                return False
+                            box[ord(board[i + k][j + l]) - ord("1")] = True
+
         return True
